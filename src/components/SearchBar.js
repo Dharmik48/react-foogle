@@ -9,7 +9,11 @@ export default function SearchBar({ search }) {
 
 	const handleSearch = e => {
 		e.preventDefault()
-		search(searchTerm)
+		try {
+			search(searchTerm)
+		} catch (e) {
+			console.log(e)
+		}
 	}
 
 	return (

@@ -1,11 +1,10 @@
 import React from 'react'
+import SearchResult from './SearchResult'
 
-export default function SearchResults() {
-	return (
-		<ul>
-			<li>Result 1</li>
-			<li>Result 2</li>
-			<li>Result 3</li>
-		</ul>
-	)
+export default function SearchResults({ data }) {
+	const renderList = data.map(result => {
+		return <SearchResult data={result} />
+	})
+
+	return <ul>{renderList}</ul>
 }

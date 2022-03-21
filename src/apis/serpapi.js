@@ -9,7 +9,5 @@ export default axios.create({
 		api_key: KEY,
 		async: true,
 		safe: true,
-		google_domain: 'google.com',
-		hl: 'en',
 	},
 })
