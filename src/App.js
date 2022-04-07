@@ -8,7 +8,7 @@ export default function App() {
 	const [searchResults, setSearchResults] = useState([])
 	console.log(searchResults)
 	const handleSearch = async searchTerm => {
-		const results = await wikipedia.get('/', {
+		const results = await wikipedia.get('https://en.wikipedia.org/w/api.php', {
 			params: {
 				srsearch: searchTerm,
 			},

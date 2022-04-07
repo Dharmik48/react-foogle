@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-	baseURL: 'https://en.wikipedia.org/w/api.php',
+	baseURL: 'https://cors-anywhere.herokuapp.com/',
 	params: {
 		action: 'query',
 		list: 'search',
