@@ -1,24 +1,26 @@
 import React, { useState } from 'react'
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults'
-import serpapi from './apis/serpapi'
+import wikipedia from './apis/wikipedia'
+import './styles.css'
 
 export default function App() {
 	const [searchResults, setSearchResults] = useState([])
-
+	console.log(searchResults)
 	const handleSearch = async searchTerm => {
-		const results = await serpapi.get('/search.json', {
+		const results = await wikipedia.get('/', {
 			params: {
-				q: searchTerm,
+				srsearch: searchTerm,
 			},
 		})
-		setSearchResults(results.data['organic_results'])
+		const data = results.data.query.search || []
+		setSearchResults(data)
 	}
 
 	return (
 		<>
 			<SearchBar search={handleSearch} />
-			<SearchResults data={searchResults} />
+			{SearchResults.length && <SearchResults data={searchResults} />}
 		</>
 	)
 }
