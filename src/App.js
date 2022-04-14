@@ -1,19 +1,23 @@
 import React, { useState } from 'react'
 import SearchBar from './components/SearchBar'
 import SearchResults from './components/SearchResults'
-import wikipedia from './apis/wikipedia'
+import serpapi from './apis/serpapi'
 import './styles.css'
 
 export default function App() {
 	const [searchResults, setSearchResults] = useState([])
-	console.log(searchResults)
 	const handleSearch = async searchTerm => {
-		const results = await wikipedia.get('https://en.wikipedia.org/w/api.php', {
-			params: {
-				srsearch: searchTerm,
-			},
-		})
-		const data = results.data.query.search || []
+		const results = await serpapi.get(
+			'https://cors-get.herokuapp.com/https://serpapi.com/search',
+			{
+				params: {
+					q: searchTerm,
+				},
+			}
+		)
+		console.log(results)
+		setSearchResults(['Searching...'])
+		const data = results.data.organic_results || []
 		setSearchResults(data)
 	}
 
@@ -24,3 +28,5 @@ export default function App() {
 		</>
 	)
 }
+
+// https://thingproxy.freeboard.io/fetch/

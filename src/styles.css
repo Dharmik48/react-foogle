@@ -1,8 +1,8 @@
 :root {
-	--clr-bg: #fef6e4;
-	--clr-text: #001858;
-	--clr-mute: #172c66;
-	--clr-highlight: #f582ae;
+	--clr-bg: 42 93% 95%;
+	--clr-text: 224 100% 17%;
+	--clr-mute: 224 63% 25%;
+	--clr-highlight: 337 85% 74%;
 }
 
 * {
@@ -12,7 +12,7 @@
 }
 
 h1 {
-	color: var(--clr-text);
+	color: hsl(var(--clr-text));
 	font-family: 'PT Sans', sans-serif;
 }
 
@@ -22,44 +22,117 @@ input {
 	color: inherit;
 }
 
-button {
+input {
+	background-color: transparent;
+}
+
+button,
+input {
 	font-family: inherit;
 }
 a {
 	text-decoration: none;
 }
 
+ul {
+	list-style: none;
+}
+
 body {
 	min-height: 100vh;
 	width: 100%;
 	font-family: 'Quicksand', sans-serif;
-	color: var(--clr-text);
-	background-color: var(--clr-bg);
+	color: hsl(var(--clr-text));
+	background-color: hsl(var(--clr-bg));
 }
 
 #root {
-	height: 100%;
+	min-height: 100%;
 	width: 100%;
 	display: grid;
 	place-items: center;
-	padding: 3em;
+	gap: 2.5em;
+	padding: 2em 1em;
+}
+
+.search-bar__input {
+	border-radius: 1em;
+	outline: none;
+	padding: 1em;
+	border: 1px solid hsl(var(--clr-highlight));
 }
 
 .search-bar {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 2em;
+}
+
+.search-bar__form {
+	display: flex;
+	gap: 1em;
+}
+
+.search-bar__btn {
+	background: transparent;
+	border: 1px solid hsl(var(--clr-highlight));
+	border-radius: 1em;
+	padding: 1em;
+	transition: background-color 300ms ease;
+	cursor: pointer;
+}
+
+.search-bar__btn:hover,
+.search-bar__btn:focus {
+	background-color: hsl(var(--clr-highlight));
+	outline: none;
 }
 
 .search-bar__heading {
 	font-size: 4rem;
 }
 
+.search__display-link {
+	color: hsl(var(--clr-mute));
+}
+
+.search__result {
+	display: flex;
+	gap: 0.25em;
+	flex-direction: column;
+}
+
+.search__results {
+	display: flex;
+	flex-direction: column;
+	gap: 1.75em;
+}
+
+.search__link {
+	color: hsl(var(--clr-highlight));
+}
+
+.search__desc {
+	display: flex;
+	gap: 1em;
+	justify-content: space-between;
+	padding: 1em;
+	background-color: hsl(var(--clr-highlight));
+	border-radius: 1em;
+}
+
 @media (prefers-color-scheme: dark) {
 	:root {
-		--clr-bg: #16161a;
-		--clr-text: #fffffe;
-		--clr-mute: #94a1b2;
-		--clr-highlight: #7f5af0;
+		--clr-bg: 240 8% 9%;
+		--clr-text: 60 100% 100%;
+		--clr-mute: 214 16% 64%;
+		--clr-highlight: 255 83% 65%;
+	}
+}
+
+@media (max-width: 585px) {
+	.search__desc {
+		font-size: 0.85rem;
 	}
 }
