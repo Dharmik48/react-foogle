@@ -8,7 +8,6 @@ export default axios.create({
 		engine: 'google',
 		api_key: KEY,
 		num: 20,
-		origin: 'https://localhost:3000',
 		// action: 'query',
 		// list: 'search',
 		// format: 'json',
