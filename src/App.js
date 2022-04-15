@@ -15,7 +15,6 @@ export default function App() {
 				},
 			}
 		)
-		console.log(results)
 		setSearchResults(['Searching...'])
 		const data = results.data.organic_results || []
 		setSearchResults(data)
